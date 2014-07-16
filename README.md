@@ -61,3 +61,9 @@ You're on Linux 3.13.0-30-generic
 ```
 ./manage remove php
 ```
+
+
+### Extension
+
+You can write on other programming language such as Ruby, Java, Go, Perl, C, etc.
+
