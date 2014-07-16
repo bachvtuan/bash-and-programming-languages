@@ -35,12 +35,20 @@ I wrote 3 files corresponding 3 programing languages consist javascript ( js_pro
 ```
 
 ### Usage
-I assume you install php before
+I assume you installed php before
 
-You can run php program by command
+And now, you can run php program by command
 
 ```
  php_program Your Full Name
+```
+
+**Below is my result:**
+```
+bvtuan@bvtuan:~$ php_program Tuan Bach Van
+Hello: Tuan Bach Van
+You're running on bash by using PHP 5.5.9-1ubuntu4.3
+You're on Linux 3.13.0-30-generic
 ```
 
 ### To remove installed program
