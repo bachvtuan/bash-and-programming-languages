@@ -2,7 +2,7 @@
 <?php
 
 if ( count($argv) == 1 ){
-  echo "Please tell me what your name is, try 'php_program your_name'\n";
+  echo "Please tell me what your full name is, try \"php_program Your Full Name\"\n";
 }
 else{
   array_shift($argv);

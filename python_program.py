@@ -7,7 +7,7 @@ def main(argv):
 
   if len( argv ) == 1:
 
-    print "Please tell me what your name is, try 'python_program your_name'"
+    print "Please tell me what your full name is, try \"python_program Your Full Name\""
 
   else:
     argv.pop(0)
