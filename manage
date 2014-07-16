@@ -1,0 +1,76 @@
+#!/bin/bash
+# Usage: ./manage install|remove php|js|python 
+
+cmd=$1
+program=$2
+
+invalid_message(){
+  echo "$(tput setaf 1) Invalid syntax$(tput sgr 0)"
+  echo " Try ./manage install|remove php|js|python "
+  echo " Or bash manage install|remove php|js|python "
+  exit 0
+}
+
+show_bash(){
+  echo " ----------------------------------------------"
+}
+
+if [[ $cmd != install ]] && [[ $cmd != remove ]];
+then
+  invalid_message
+fi
+
+if [[ $program != php ]] && [[ $program != js ]] && [[ $program != python ]];
+then
+  invalid_message
+fi
+
+if [[ $program == python ]];
+then
+  dot="py"
+else
+  dot="$program"
+fi
+
+file_name=$program"_program"
+full_file_name=$file_name".$dot"
+
+echo "$(tput setaf 2) Command: $(tput setaf 3)$cmd $(tput sgr 0)"
+echo "$(tput setaf 2) Programing language: $(tput setaf 3)$program $(tput sgr 0)"
+
+
+if [[ $cmd == install ]];
+then
+
+  if sudo cp $full_file_name /usr/local/bin/ && sudo mv /usr/local/bin/$full_file_name /usr/local/bin/$file_name;
+  then
+    sudo chmod +x /usr/local/bin/$file_name
+    show_bash
+    echo " Installed $file_name successfully"
+    show_bash
+    echo "$(tput setaf 3) Below is example result for \"$file_name Bach Van Tuan\" $(tput sgr 0)"
+    echo "$(tput setaf 2)"
+    $file_name Bach Van Tuan
+    echo "$(tput sgr 0)"
+  else
+    show_bash
+    echo "$(tput setaf 1) Happended error while installing $file_name, Please check above error$(tput sgr 0)"
+    show_bash
+  fi
+
+else
+  #remove file
+  sudo rm /usr/local/bin/$file_name
+
+  if [ "$?" -eq "0" ]
+  then
+    show_bash
+    echo " Removed $file_name successfully"
+    show_bash
+  else
+    show_bash
+    echo "$(tput setaf 1) Happended error while removing $file_name, Please check above error$(tput sgr 0)"
+    show_bash
+  fi
+
+fi
