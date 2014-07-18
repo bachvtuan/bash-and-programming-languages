@@ -11,7 +11,7 @@ invalid_message(){
   exit 0
 }
 
-show_bash(){
+show_dash(){
   echo " ----------------------------------------------"
 }
 
@@ -45,17 +45,17 @@ then
   if sudo cp $full_file_name /usr/local/bin/ && sudo mv /usr/local/bin/$full_file_name /usr/local/bin/$file_name;
   then
     sudo chmod +x /usr/local/bin/$file_name
-    show_bash
+    show_dash
     echo " Installed $file_name successfully"
-    show_bash
+    show_dash
     echo "$(tput setaf 3) Below is example result for \"$file_name Bach Van Tuan\" $(tput sgr 0)"
     echo "$(tput setaf 2)"
     $file_name Bach Van Tuan
     echo "$(tput sgr 0)"
   else
-    show_bash
+    show_dash
     echo "$(tput setaf 1) Happended error while installing $file_name, Please check above error$(tput sgr 0)"
-    show_bash
+    show_dash
   fi
 
 else
@@ -64,13 +64,13 @@ else
 
   if [ "$?" -eq "0" ]
   then
-    show_bash
+    show_dash
     echo " Removed $file_name successfully"
-    show_bash
+    show_dash
   else
-    show_bash
+    show_dash
     echo "$(tput setaf 1) Happended error while removing $file_name, Please check above error$(tput sgr 0)"
-    show_bash
+    show_dash
   fi
 
 fi
